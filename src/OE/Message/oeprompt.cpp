@@ -22,7 +22,7 @@ int OEPrompt::count_ = 0;
 
 OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
              int w, int h, const QString &style):
-    QLabel(parent), first_(++count_ == 7) {
+    QLabel(parent), first_(++count_ == 10) {
 
     setText(message);
     setFixedSize(w, h);
@@ -47,7 +47,6 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
 OEPrompt::~OEPrompt() {
     if (first_)
         count_ = 0;
-
 }
 
 void OEPrompt::build(void) {
