@@ -27,9 +27,11 @@ void CommonHelper::setLanguagePack(const QString &language) {
 
 void CommonHelper::moveCenter(QWidget *widget, QRect parentRect) {
     if (parentRect.isEmpty()) {
-        parentRect = QApplication::desktop()->rect();
+        parentRect = QRect(QApplication::desktop()->pos(),
+              QApplication::desktop()->size());
     }
-    widget->move (((parentRect.width() - widget->width()) >> 1),
+    qDebug() << parentRect;
+    widget->move (((parentRect.width() + parentRect.x() - widget->width()) >> 1),
           ((parentRect.height() - widget->height()) >> 1));
 }
 
