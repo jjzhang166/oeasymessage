@@ -2,7 +2,7 @@
 #define OE_H
 
 #include <QWidget>
-
+class QPushButton;
 class OE : public QWidget
 {
     Q_OBJECT
@@ -13,6 +13,10 @@ public:
 
 public slots:
     void onBriefSlot(void);
+
+private:
+
+    QPushButton *promptBtn_;
 };
 
 #endif // OE_H
