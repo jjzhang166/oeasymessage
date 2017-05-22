@@ -5,7 +5,6 @@
 #include <QMouseEvent>
 #include <QPropertyAnimation>
 #include <QTimer>
-#include <QDebug>
 
 #define DEFULT_STYLE "\
 QLabel{\
@@ -19,12 +18,11 @@ QLabel{\
 "
 
 int OEPrompt::count_ = 0;
-int OEPrompt::index_ = 0;
 
 
 OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
              int w, int h, const QString &style):
-    QLabel(parent) {
+    QLabel(parent), first_(++count_ == 7) {
 
     setText(message);
     setFixedSize(w, h);
@@ -38,12 +36,7 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
     // 居中下方四分之三处
     startx_ = (parent->width() - width()) >> 1;
     starty_ = parent->height();
-    endy_ = ((parent->height() * 3) >> 2) - (index_ * height());
-
-    ++count_;
-    ++index_;
-    if (endy_ <= height() - 1)
-        index_ = 0;
+    endy_ = ((parent->height() * 3) >> 2) - (count_ * height());
 
 #ifdef COMMONHELPER_H
     /// 阴影背景
@@ -52,10 +45,10 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
 }
 
 OEPrompt::~OEPrompt() {
-    if (--count_ <= 0)
-        index_ = 0;
-}
+    if (first_)
+        count_ = 0;
 
+}
 
 void OEPrompt::build(void) {
     QPropertyAnimation *animation= new QPropertyAnimation(this,"pos");
@@ -69,15 +62,16 @@ void OEPrompt::build(void) {
     show();
     animation->start(QAbstractAnimation::DeleteWhenStopped);
 }
+
 void OEPrompt::mousePressEvent(QMouseEvent *e) {
     if (e->button() == Qt::LeftButton)
-        delSelf();
+        onClose();
 }
 
 void OEPrompt::animationFinished(void) {
-    QTimer::singleShot(2000, this, SLOT(delSelf()));
+    QTimer::singleShot(2000, this, SLOT(onClose()));
 }
 
-void OEPrompt::delSelf(void) {
+void OEPrompt::onClose(void) {
     delete this;
 }

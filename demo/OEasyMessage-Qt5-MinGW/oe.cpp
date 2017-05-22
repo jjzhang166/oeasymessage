@@ -5,7 +5,7 @@
 OE::OE(QWidget *parent)
     : QWidget(parent)
 {
-    setFixedSize(333,333);
+    setFixedSize(1333,1333);
     QPushButton *promptBtn = new QPushButton(this);
     promptBtn->show();
 

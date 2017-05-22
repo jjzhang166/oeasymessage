@@ -26,6 +26,10 @@ public:
      */
     void build(void);
 
+public slots:
+
+    void onClose(void);
+
 protected:
 
 
@@ -36,7 +40,6 @@ private slots:
 
     void animationFinished(void);
 
-    void delSelf(void);
 
 private:
 
@@ -44,7 +47,7 @@ private:
     int starty_;
     int endy_;
     static int count_;
-    static int index_;
+    bool first_;
 
 };
 
