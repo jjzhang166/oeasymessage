@@ -26,7 +26,7 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,
     setFixedSize(w, h);
     setAlignment(Qt::AlignLeft);
     QString elided_text = fontMetrics().elidedText(message, Qt::ElideRight,
-                                                     w - 50, Qt::TextShowMnemonic);
+                                                     w - (w >> 2), Qt::TextShowMnemonic);
     setText(elided_text);
 
     if (style.isEmpty())
