@@ -23,14 +23,17 @@ QLabel{\
 
 int OEPrompt::count_ = 0;
 
-
 OEPrompt::OEPrompt(QWidget *parent, const QString &message,
              int w, int h, const QString &style):
     QLabel(parent), first_(++count_ == 10) {
     setFixedSize(w, h);
-    setAlignment(Qt::AlignLeft);
+    if (w < fontMetrics().width(message))
+        setAlignment(Qt::AlignLeft);
+    else
+        setAlignment(Qt::AlignCenter);
+
     QString elided_text = fontMetrics().elidedText(message, Qt::ElideRight,
-                                                     w - (w >> 2), Qt::TextShowMnemonic);
+                                          w - (w / 3), Qt::TextShowMnemonic);
     setText(elided_text);
 
     if (style.isEmpty())
