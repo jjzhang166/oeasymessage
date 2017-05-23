@@ -76,7 +76,7 @@ OEasyWebNotice::OEasyWebNotice(const QString &title, const QString &content, con
 
     /// 去掉系统标题栏
     Qt::WindowFlags flag = windowFlags();
-    setWindowFlags(flag | Qt::FramelessWindowHint);
+    setWindowFlags(flag | Qt::FramelessWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
 
     /// 设置自定义标题
     titleLabel_->setStyleSheet(titleStyle_);
@@ -91,10 +91,10 @@ OEasyWebNotice::OEasyWebNotice(const QString &title, const QString &content, con
     contentLabel_->setWordWrap(true);
     contentLabel_->setAlignment(Qt::AlignTop);
     elided_text = fontMetrics().elidedText("    " + content, Qt::ElideRight,
-                                                   width() * 7, Qt::TextShowMnemonic);
+                                            width() * 6, Qt::TextShowMnemonic);
     contentLabel_->setText(elided_text);
-    contentLabel_->setFixedSize(width(),height());
-    contentLabel_->move(0,40);
+    contentLabel_->setFixedSize(width() - 30,height());
+    contentLabel_->move(15, 40);
 
     /// 关闭按钮
     closeButton_->setFixedSize(30,30);
