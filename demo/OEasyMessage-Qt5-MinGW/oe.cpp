@@ -32,7 +32,8 @@ OE::~OE(void) {
 void OE::onBriefSlot(void) {
     if (promptBtn_->isDown()) {
         OEasyMessage::BriefMessage(this,
-                    QString::number(rand())+"撒暗示的撒暗示的撒暗示撒暗示的撒暗示的撒暗示1",rand()%200+150);
+                    QString::number(rand()) + "撒暗示的撒暗示的撒暗示撒暗示的撒暗示的撒暗示1",
+                                   rand()%200+150);
 
         QTimer::singleShot(100, this,
                     SLOT(onBriefSlot()));

@@ -5,7 +5,11 @@
 #include <QMouseEvent>
 #include <QPropertyAnimation>
 #include <QTimer>
+
+#ifndef QT_NO_DEBUG
 #include <QDebug>
+#endif
+
 #define DEFULT_STYLE "\
 QLabel{\
     color:#FFFFFF;\
