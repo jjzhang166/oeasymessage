@@ -20,7 +20,13 @@ public:
                           int w = 200, int h = 25, const QString &style = QString());
 
 
-
+    /**
+    * @brief : 右下角划出新闻类信息
+    * @param : title 标题信息
+    * @param : content 消息纲要,支持富文本。
+    * @param : url 详情的网页链接
+    */
+    static void NetWorkWebNotice(const QString &title = QString(), const QString &content = QString(), const QString &url = QString());
 signals:
 
 public slots:

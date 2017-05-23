@@ -30,7 +30,6 @@ void CommonHelper::moveCenter(QWidget *widget, QRect parentRect) {
         parentRect = QRect(QApplication::desktop()->pos(),
               QApplication::desktop()->size());
     }
-    qDebug() << parentRect;
     widget->move (((parentRect.width() + parentRect.x() - widget->width()) >> 1),
           ((parentRect.height() - widget->height()) >> 1));
 }
