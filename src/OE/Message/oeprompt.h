@@ -32,9 +32,7 @@ public slots:
 
 protected:
 
-
     void mousePressEvent(QMouseEvent *e);
-
 
 private slots:
 

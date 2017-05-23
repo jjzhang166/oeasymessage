@@ -5,7 +5,7 @@
 #include <QMouseEvent>
 #include <QPropertyAnimation>
 #include <QTimer>
-
+#include <QDebug>
 #define DEFULT_STYLE "\
 QLabel{\
     color:#FFFFFF;\
@@ -36,7 +36,8 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,\
     // 居中下方四分之三处
     startx_ = (parent->width() - width()) >> 1;
     starty_ = parent->height();
-    endy_ = ((parent->height() * 3) >> 2) - (count_ * height());
+    endy_ = ((parent->height() * 7) >> 3) - (count_ * height());
+
 
 #ifdef COMMONHELPER_H
     /// 阴影背景
