@@ -13,10 +13,12 @@ public:
 
 public slots:
     void onBriefSlot(void);
+    void onNetWebSlot(void);
 
 private:
 
     QPushButton *promptBtn_;
+    QPushButton* netwebmsg_;
 };
 
 #endif // OE_H

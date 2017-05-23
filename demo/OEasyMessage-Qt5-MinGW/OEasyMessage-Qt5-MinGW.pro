@@ -25,9 +25,11 @@ SOURCES += main.cpp\
         oe.cpp \
     ../../src/OE/Message/ax/commonhelper.cpp \
     ../../src/OE/Message/oeprompt.cpp \
-    ../../src/OE/Message/oeasymessage.cpp
+    ../../src/OE/Message/oeasymessage.cpp \
+    ../../src/OE/Message/oeasywebnotice.cpp
 
 HEADERS  += oe.h \
     ../../src/OE/Message/ax/commonhelper.h \
     ../../src/OE/Message/oeprompt.h \
-    ../../src/OE/Message/oeasymessage.h
+    ../../src/OE/Message/oeasymessage.h \
+    ../../src/OE/Message/oeasywebnotice.h
