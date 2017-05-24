@@ -9,22 +9,22 @@ class OEasyMessage : public QObject
 public:
 
     /**
-     * @brief ×Ô¶¯ÏûÊ§ÌáÊ¾¿ò
-     * @param parent Ö¸Ãû¸¸´°¿Ú
-     * @param message ËùÒªÌáÊ¾µÄÏûÏ¢
-     * @param w ¿í
-     * @param h ¸ß
-     * @param style ÌáÊ¾¿òÑùÊ½£º×¢Òâ×ÖÌå´óĞ¡ºÍ¿í¸ßĞ§¹ûÒªÅäºÏºÃ
+     * @brief è‡ªåŠ¨æ¶ˆå¤±æç¤ºæ¡†
+     * @param parent æŒ‡åçˆ¶çª—å£
+     * @param message æ‰€è¦æç¤ºçš„æ¶ˆæ¯
+     * @param w å®½
+     * @param h é«˜
+     * @param style æç¤ºæ¡†æ ·å¼ï¼šæ³¨æ„å­—ä½“å¤§å°å’Œå®½é«˜æ•ˆæœè¦é…åˆå¥½
      */
     static void BriefMessage(QWidget *parent, const QString &message = QString(),
                           int w = 200, int h = 25, const QString &style = QString());
 
 
     /**
-    * @brief : ÓÒÏÂ½Ç»®³öĞÂÎÅÀàĞÅÏ¢
-    * @param : title ±êÌâĞÅÏ¢
-    * @param : content ÏûÏ¢¸ÙÒª,Ö§³Ö¸»ÎÄ±¾¡£
-    * @param : url ÏêÇéµÄÍøÒ³Á´½Ó
+    * @brief : å³ä¸‹è§’åˆ’å‡ºæ–°é—»ç±»ä¿¡æ¯
+    * @param : title æ ‡é¢˜ä¿¡æ¯
+    * @param : content æ¶ˆæ¯çº²è¦,æ”¯æŒå¯Œæ–‡æœ¬ã€‚
+    * @param : url è¯¦æƒ…çš„ç½‘é¡µé“¾æ¥
     */
     static void NetWorkWebNotice(const QString &title = QString(), const QString &content = QString(), const QString &url = QString());
 signals:

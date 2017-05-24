@@ -109,7 +109,7 @@ OEasyWebNotice::OEasyWebNotice(const QString &title, const QString &content, con
     /// Web 查看按钮
     urlButton_->setFixedSize(60,30);
     urlButton_->setStyleSheet(urlStyle_);
-    urlButton_->setText(QStringLiteral("查看"));
+    urlButton_->setText(QStringLiteral("查看(look)"));
     urlButton_->move(width()- urlButton_->width() -2,
                      height() - urlButton_->height() -2);
     urlButton_->raise();

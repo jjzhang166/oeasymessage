@@ -3,28 +3,56 @@
 
 #include <QWidget>
 
-// Short Messaging ¼òÑ¶
+class QLabel;
+
+// Short Messaging ç®€è®¯
 class OEasySMS : public QWidget
 {
     Q_OBJECT
 public:
-    explicit OEasySMS(QWidget *parent = 0);
 
-    /// ¹¹½¨´°¿Ú
+    enum SMSTYPE {
+        Emergency = 0,
+        Simple = 1,
+        Prompt
+    };
+
+
+    explicit OEasySMS(const QString & msg, SMSTYPE type = Emergency, QWidget *parent = 0);
+
+    /// æ„å»ºçª—å£
     void build(void);
+
+    /// è®¾ç½®ä¿¡æ¯ç±»å‹
+    void setIcon(SMSTYPE type);
 
 signals:
 
-    /// ¾Ü¾øÕâ¸ö¼òÑ¶
+    /// æ‹’ç»è¿™ä¸ªç®€è®¯
     void reject(void);
 
-    /// ½ÓÊÜÕâ¸ö¼òÑ¶
+    /// æ¥å—è¿™ä¸ªç®€è®¯
     void accept(void);
 
 public slots:
 
-    /// ¹Ø±Õ´°¿Ú
+    /// å…³é—­çª—å£
     void onClose(void);
+
+private slots:
+
+    void animationFinished(void);
+private:
+
+private:
+
+    QLabel* icoLabel_;
+    QLabel* messageLabel_;
+
+    int startx_;
+    int starty_;
+    int endy_;
+
 
 };
 
