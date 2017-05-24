@@ -1,0 +1,51 @@
+卷 工程与库 的文件夹 PATH 列表
+卷序列号为 0003-6090
+F:.
+│  D3Dcompiler_43.dll
+│  libEGL.dll
+│  libgcc_s_dw2-1.dll
+│  libGLESV2.dll
+│  libstdc++-6.dll
+│  libwinpthread-1.dll
+│  OEasyMessage-Qt5-MinGW-release.exe
+│  opengl32sw.dll
+│  Qt5Core.dll
+│  Qt5Gui.dll
+│  Qt5Svg.dll
+│  Qt5Widgets.dll
+│  
+├─iconengines
+│      qsvgicon.dll
+│      
+├─imageformats
+│      qgif.dll
+│      qicns.dll
+│      qico.dll
+│      qjpeg.dll
+│      qsvg.dll
+│      qtga.dll
+│      qtiff.dll
+│      qwbmp.dll
+│      qwebp.dll
+│      
+├─platforms
+│      qwindows.dll
+│      
+└─translations
+        qt_ca.qm
+        qt_cs.qm
+        qt_de.qm
+        qt_en.qm
+        qt_fi.qm
+        qt_fr.qm
+        qt_he.qm
+        qt_hu.qm
+        qt_it.qm
+        qt_ja.qm
+        qt_ko.qm
+        qt_lv.qm
+        qt_pl.qm
+        qt_ru.qm
+        qt_sk.qm
+        qt_uk.qm
+        
