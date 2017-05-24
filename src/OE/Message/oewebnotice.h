@@ -6,7 +6,7 @@
 class QPushButton;
 class QLabel;
 
-class OEasyWebNotice : public QWidget
+class OEWebNotice : public QWidget
 {
     Q_OBJECT
 
@@ -25,7 +25,7 @@ public:
     * @param : content 消息纲要,支持富文本。
     * @param : url 详情的网页链接
     */
-    explicit OEasyWebNotice(const QString &title = QString(),
+    explicit OEWebNotice(const QString &title = QString(),
                  const QString &content = QString(),const QString &url = QString());
 
 

@@ -1,4 +1,4 @@
-#include "oeasywebnotice.h"
+#include "oewebnotice.h"
 
 
 
@@ -18,7 +18,7 @@
 
 
 
-QString OEasyWebNotice::closeStyle_ = " \
+QString OEWebNotice::closeStyle_ = " \
         QPushButton{\
             color : black;\
             background-color: transparent;\
@@ -33,7 +33,7 @@ QString OEasyWebNotice::closeStyle_ = " \
         }\
         ";
 
-QString OEasyWebNotice::urlStyle_ = " \
+QString OEWebNotice::urlStyle_ = " \
         QPushButton{\
             color : black;\
             background-color: transparent;\
@@ -48,12 +48,12 @@ QString OEasyWebNotice::urlStyle_ = " \
         }\
         ";
 
-QString OEasyWebNotice::titleStyle_ = " \
+QString OEWebNotice::titleStyle_ = " \
         QLabel { \
         font-size: 18px;\
         \
         }";
-QString OEasyWebNotice::contentStyle_ = " \
+QString OEWebNotice::contentStyle_ = " \
         QLabel { \
         font-size: 14px;\
         \
@@ -61,22 +61,18 @@ QString OEasyWebNotice::contentStyle_ = " \
 
 
 
-OEasyWebNotice::OEasyWebNotice(const QString &title, const QString &content, const QString &url)
+OEWebNotice::OEWebNotice(const QString &title, const QString &content, const QString &url)
     : QWidget(), url_(url),
     contentLabel_(new QLabel(this)), titleLabel_(new QLabel(this)),
     closeButton_(new QPushButton(titleLabel_.get())), urlButton_(new QPushButton(this)) {
 
-    /// 窗口置顶
+    /// 窗口置顶、去掉系统标题栏
     Qt::WindowFlags flags = windowFlags();
-    flags |= Qt::WindowStaysOnTopHint;
+    flags |= Qt::FramelessWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint;
     setWindowFlags(flags);
 
     /// 设置窗口规格
     setFixedSize(350,200);
-
-    /// 去掉系统标题栏
-    Qt::WindowFlags flag = windowFlags();
-    setWindowFlags(flag | Qt::FramelessWindowHint | Qt::Tool | Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
 
     /// 设置自定义标题
     titleLabel_->setStyleSheet(titleStyle_);
@@ -119,7 +115,7 @@ OEasyWebNotice::OEasyWebNotice(const QString &title, const QString &content, con
 }
 
 
-void OEasyWebNotice::onShow() {
+void OEWebNotice::onShow() {
     QRect rect = QApplication::desktop()->availableGeometry();
     const int &endy = rect.height() - height();
     QPropertyAnimation *animation= new QPropertyAnimation(this,"pos");
@@ -134,17 +130,17 @@ void OEasyWebNotice::onShow() {
     animation->start(QAbstractAnimation::DeleteWhenStopped);
 }
 
-void OEasyWebNotice::animationFinished(void) {
+void OEWebNotice::animationFinished(void) {
     QTimer::singleShot(10000, this, SLOT(onClose()));
 }
 
-void OEasyWebNotice::openUrl(void) {
+void OEWebNotice::openUrl(void) {
     QDesktopServices::openUrl(QUrl(url_));
     emit WebNoticeUrlOpen(url_);
     delete this;
 }
 
-void OEasyWebNotice::onClose(void) {
+void OEWebNotice::onClose(void) {
     disconnect(closeButton_.get(),SIGNAL(clicked()),
             this, SLOT(onClose()));
 

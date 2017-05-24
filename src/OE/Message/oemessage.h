@@ -3,10 +3,17 @@
 
 #include <QObject>
 
-class OEasyMessage : public QObject
+
+class OEMessage : public QObject
 {
     Q_OBJECT
 public:
+    enum SMSTYPE {
+        Default = 0,
+        Emergency = 1,
+        Simple,
+        Prompt
+    };
 
     /**
      * @brief 自动消失提示框
@@ -26,14 +33,18 @@ public:
     * @param : content 消息纲要,支持富文本。
     * @param : url 详情的网页链接
     */
-    static void NetWorkWebNotice(const QString &title = QString(), const QString &content = QString(), const QString &url = QString());
+    static void NetWorkWebNotice(const QString &title, const QString &content,
+                                 const QString &url);
+
+
+    static void SMS(const QString & msg, SMSTYPE type = Default, QWidget *parent = 0);
 signals:
 
 public slots:
 
 private:
 
-    explicit OEasyMessage(QObject *parent = 0);
+    explicit OEMessage(QObject *parent = 0);
 };
 
 #endif // OEASYMESSAGE_H

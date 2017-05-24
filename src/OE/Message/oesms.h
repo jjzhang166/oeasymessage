@@ -6,25 +6,26 @@
 class QLabel;
 
 // Short Messaging 简讯
-class OEasySMS : public QWidget
+class OESms : public QWidget
 {
     Q_OBJECT
 public:
 
-    enum SMSTYPE {
-        Emergency = 0,
-        Simple = 1,
+    enum TYPE {
+        Default = 0,
+        Emergency = 1,
+        Simple,
         Prompt
     };
 
 
-    explicit OEasySMS(const QString & msg, SMSTYPE type = Emergency, QWidget *parent = 0);
+    explicit OESms(const QString & msg, OESms::TYPE type = Default, QWidget *parent = 0);
 
     /// 构建窗口
     void build(void);
 
     /// 设置信息类型
-    void setIcon(SMSTYPE type);
+    void setIcon(TYPE type);
 
 signals:
 
@@ -36,8 +37,6 @@ signals:
 
 public slots:
 
-    /// 关闭窗口
-    void onClose(void);
 
 private slots:
 
@@ -51,7 +50,7 @@ private:
 
     int startx_;
     int starty_;
-    int endy_;
+    int endx_;
 
 
 };
