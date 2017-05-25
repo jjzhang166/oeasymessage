@@ -73,7 +73,7 @@ OESms::OESms(const QString & msg, OESms::TYPE type, QWidget *parent) : QWidget(p
     QString elided_text = fontMetrics().elidedText(msg, Qt::ElideRight,
                                             messageLabel_->width() * 2, Qt::TextShowMnemonic);
     messageLabel_->setText(elided_text);
-    messageLabel_->setStyleSheet("QLabel{background-color:white;\
+    messageLabel_->setStyleSheet("QLabel{background-color:rgb(224,242,255);\
                                     padding:10px; \
                                     font-size:13px;\
                                     border-top-right-radius:5px;\

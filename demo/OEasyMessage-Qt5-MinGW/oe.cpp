@@ -6,7 +6,7 @@
 
 
 #include "OE/OEasyMessage"
-#include "OE/Message/ax/commonhelper.h"
+#include "OE/Help/commonhelper.h"
 
 #ifndef QT_NO_DEBUG
 #include <QDebug>
@@ -59,7 +59,7 @@ OE::~OE(void) {
 void OE::onBriefSlot(void) {
 #ifdef AUTO_TEST
     if (promptBtn_->isDown()) {
-        OEMessage::BriefMessage(this,
+        OEMessage::BriefMessage(/*nullptr*/this,
                     QString::number(rand()) + "OEasyMessage is good!",
                                    rand()%200+150);
 
@@ -113,7 +113,7 @@ void OE::onSmsSlot(void) {
         QString str;
         for (int i = rand() % 6 + 1; i > 0; --i)
             str += QStringLiteral("今天是个好日子！");
-        OEMessage::SMS(str,OEMessage::SMSTYPE::Default,this);
+        OEMessage::SMS(str,OEMessage::SMSTYPE::Default/*,this*/);
 
         QTimer::singleShot(100, this,
                     SLOT(onSmsSlot()));

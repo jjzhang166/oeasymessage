@@ -23,15 +23,15 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         oe.cpp \
-    ../../src/OE/Message/ax/commonhelper.cpp \
     ../../src/OE/Message/oeprompt.cpp \
     ../../src/OE/Message/oewebnotice.cpp \
     ../../src/OE/Message/oesms.cpp \
-    ../../src/OE/Message/oemessage.cpp
+    ../../src/OE/Message/oemessage.cpp \
+    ../../src/OE/Help/commonhelper.cpp
 
 HEADERS  += oe.h \
-    ../../src/OE/Message/ax/commonhelper.h \
     ../../src/OE/Message/oeprompt.h \
     ../../src/OE/Message/oewebnotice.h \
     ../../src/OE/Message/oesms.h \
-    ../../src/OE/Message/oemessage.h
+    ../../src/OE/Message/oemessage.h \
+    ../../src/OE/Help/commonhelper.h

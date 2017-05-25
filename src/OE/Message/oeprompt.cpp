@@ -1,6 +1,6 @@
 #include "oeprompt.h"
 
-#include "ax/commonhelper.h"
+#include "OE/Help/commonhelper.h"
 
 #include <QMouseEvent>
 #include <QPropertyAnimation>
@@ -20,7 +20,8 @@ QLabel{\
     border-radius:5;\
 }\
 "
-
+#include <QApplication>
+#include <QDesktopWidget>
 int OEPrompt::count_ = 0;
 
 OEPrompt::OEPrompt(QWidget *parent, const QString &message,
@@ -36,15 +37,25 @@ OEPrompt::OEPrompt(QWidget *parent, const QString &message,
                                           w - (w / 3), Qt::TextShowMnemonic);
     setText(elided_text);
 
+
+    // 居中下方四分之三处
+    QWidget* temp_parent = parent;
+    if (temp_parent == nullptr) {
+        temp_parent = QApplication::desktop();
+        Qt::WindowFlags flags = windowFlags();
+        flags |= Qt::FramelessWindowHint /*| Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint*/ | Qt::Tool;
+        setWindowFlags(flags);
+    }
+
     if (style.isEmpty())
         setStyleSheet(DEFULT_STYLE);
     else
         setStyleSheet(style);
 
-    // 居中下方四分之三处
-    startx_ = (parent->width() - width()) >> 1;
-    starty_ = parent->height();
-    endy_ = ((parent->height() * 7) >> 3) - (count_ * height());
+
+    startx_ = (temp_parent->width() - width()) >> 1;
+    starty_ = temp_parent->height();
+    endy_ = ((temp_parent->height() * 7) >> 3) - (count_ * height());
 
 
 #ifdef COMMONHELPER_H
